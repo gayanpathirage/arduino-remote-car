@@ -140,19 +140,6 @@ void goBackward(int steps) {
   resetMotion();
 
   // move for given period
-  digitalWrite(4, HIGH);
-  digitalWrite(6 , HIGH);
-  delay(100 * steps);
-
-  // Now  stop motion
-  digitalWrite(4, LOW);
-  digitalWrite(6 , LOW);
-}
-
-void goForward(int steps) {
-  resetMotion();
-
-  // move for given period
   digitalWrite(5, HIGH);
   digitalWrite(7 , HIGH);
   delay(100 * steps);
@@ -162,10 +149,23 @@ void goForward(int steps) {
   digitalWrite(7 , LOW);
 }
 
+void goForward(int steps) {
+  resetMotion();
+
+  // move for given period
+  digitalWrite(4, HIGH);
+  digitalWrite(6 , HIGH);
+  delay(100 * steps);
+
+  // Now  stop motion
+  digitalWrite(4, LOW);
+  digitalWrite(6 , LOW);
+}
+
 void resetMotion() {
   digitalWrite(4, LOW);
   digitalWrite(5, LOW);
   digitalWrite(6, LOW);
   digitalWrite(7, LOW);
-  delay(10);  // pause between motion to protect the motor
+  delay(5);  // pause between motion to protect the motor
 }
